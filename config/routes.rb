@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'event/:id/attend' => 'event#attend', as: 'attend_event'
 
+  get 'event/:id/unattend' => 'event#unattend', as: 'unattend_event'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

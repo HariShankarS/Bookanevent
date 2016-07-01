@@ -27,6 +27,13 @@ class EventController < ApplicationController
     redirect_to show_id_path(@event)
   end
 
+  def unattend
+    @event = Event.find(params[:id])   
+    @unattend = current_user.attendees.where(event_id: @event.id).first
+    @unattend.destroy
+    redirect_to show_id_path(@event)
+  end
+
   private
 
   def event_params

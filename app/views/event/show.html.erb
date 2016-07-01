@@ -10,5 +10,8 @@
 <% if user_signed_in? %>
 	<%= link_to "Attend", attend_event_path(@event), method: :get, class:"btn btn-raised btn-success"%>
 <% end %>	
+<% if user_signed_in? %>
+	<%= link_to "Unattend", unattend_event_path(@event), method: :get, class:"btn btn-raised btn-success"%>
+<% end %>
 <%= link_to "BACK",event_index_path, class: "btn btn-raised btn-info" %>
 </div>
