@@ -3,5 +3,12 @@
 <h3><%= @event.time%> </h3>
 <h3><%= @event.description%> </h3>
 <h4><%= @event.venue %></h4>
+	<h3>Attendees</h3>
+	<% @attendees.each do |attendee| %>
+		<h4> <%= attendee.user.name%> <%= attendee.user.gender %> </h4>
+	<% end %>	
+<% if user_signed_in? %>
+	<%= link_to "Attend", attend_event_path(@event), method: :get, class:"btn btn-raised btn-success"%>
+<% end %>	
 <%= link_to "BACK",event_index_path, class: "btn btn-raised btn-info" %>
 </div>

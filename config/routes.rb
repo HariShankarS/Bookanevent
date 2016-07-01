@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   get 'event/new'
 
   get 'event/index'
@@ -7,6 +8,8 @@ Rails.application.routes.draw do
   get 'event/:id/show' => 'event#show', as: 'show_id'
 
   get 'event/create'
+
+  get 'event/:id/attend' => 'event#attend', as: 'attend_event'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
