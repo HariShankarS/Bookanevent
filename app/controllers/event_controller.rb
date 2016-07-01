@@ -34,9 +34,14 @@ class EventController < ApplicationController
     redirect_to show_id_path(@event)
   end
 
+  def price
+    
+  end
+
+
   private
 
   def event_params
-  params.require(:event).permit(:name, :time, :venue, :description)
+  params.require(:event).permit(:name, :time, :venue, :description ,:ticketcost)
   end
 end
