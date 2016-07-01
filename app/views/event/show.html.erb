@@ -4,7 +4,7 @@
 	<h4><%= @event.time.strftime("%d %b %Y %l:%M %p") %> </h4>
 	<h4><%= @event.description%> </h4>
 	<h4><%= @event.venue %></h4>
-	<h4> Ticket Cost of the Event is <%= @event.ticketcost %></h4> <br /> <br/>
+	<h4> Ticket Cost of the Event is <%= @event.price(current_user) %></h4> <br /> <br/>
     <%= link_to "BACK",event_index_path, class: "btn btn-raised btn-info" %>	
   </div>
   <div class="col-md-3 col-md-offset-1">

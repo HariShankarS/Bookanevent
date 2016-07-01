@@ -34,11 +34,6 @@ class EventController < ApplicationController
     redirect_to show_id_path(@event)
   end
 
-  def price
-    
-  end
-
-
   private
 
   def event_params
