@@ -12,9 +12,9 @@
 
   <div class="field">
     <%= f.label :gender %><br />
-    <%= f.text_field :gender, autofocus: true %>
-  </div>
-
+                <%= f.radio_button("gender","Male")%> Male
+                <%= f.radio_button("gender","Female")%> Female
+  </div>             
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
