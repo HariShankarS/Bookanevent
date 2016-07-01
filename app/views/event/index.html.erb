@@ -1,7 +1,7 @@
 <% @events.each do |event| %>
 <div class="container events">
 	<h2><%= event.name %> <br ></h2>
-	<h4><%= event.time %> <br ></h4>
+	<h4><%= event.time.strftime("%d %b %Y %l:%M %p")  %> <br ></h4>
 	<%= link_to "View",show_id_path(event), class: "btn btn-raised btn-info"%>
 </div>
 <%end%>
