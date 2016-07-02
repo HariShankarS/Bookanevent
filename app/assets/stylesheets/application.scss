@@ -16,6 +16,20 @@
 
 
 .event {
-  border: 1px solid black;
-  margin: 3px;
+  height: 200px;
+  border: 10px solid white;
+  padding: 10px;
+  text-align: center;
+}
+span {
+  text-decoration: line-through;
+}
+.navbar-default {
+  background-color: #58ACFA!important;
+}
+.navbar-default a, .navbar-default h3 {
+  color: #FAFAFA !important;
+}
+h2, h3,h4 {
+  text-align: center;
 }

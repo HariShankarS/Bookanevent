@@ -1,29 +1,36 @@
 <div class="container">
-  <div class="col-md-4 col-md-offset-1">
-	<h2><%= @event.name.capitalize %> </h2>
+  <div class="col-md-5 col-md-offset-1">
+	<h2><%= @event.name.capitalize %> </h2> <br/>
 	<h4><%= @event.time.strftime("%d %b %Y %l:%M %p") %> </h4>
 	<h4><%= @event.description%> </h4>
 	<h4><%= @event.venue %></h4>
-	<h4> Ticket Cost of the Event is <%= @event.price(current_user) %></h4> <br /> <br/>
+	<% if current_user.present? %>
+		<% if current_user.gender == "Female"%>
+			<h4> Ticket Cost of the Event is Rs.<%= @event.price(current_user)%> <span> Rs.<%=@event.ticketcost.to_i %></span></h4>
+		<% else %>
+			<h4> Ticket Cost of the Event is Rs.<%= @event.price(current_user)%></h4>
+		<% end %>
+	<% else %>
+		<h4> Ticket Cost of the Event is Rs.<%= @event.price(current_user)%></h4>
+	<% end %>
+		<br /> <br/>  <br/>
     <%= link_to "BACK",event_index_path, class: "btn btn-raised btn-info" %>	
   </div>
   <div class="col-md-3 col-md-offset-1">
-	<h3>Attendees</h3>
+	<h3>Attendees</h3><br/>
 	<table class="table table-bordered">
-		<tbody>
-			<tr>
-				<td>
-					<% @attendees.each do |attendee| %>
-						<h4><%= attendee.user.name.capitalize%></h4>
-					<% end %>
-				</td>
-				<td>
-					<% @attendees.each do |attendee| %>
-						<h4><%= attendee.user.gender %>	</h4> 
-					<% end %>
-				</td>
-			</tr>
-		</tbody>	
+	  <tbody>
+		<% @attendees.each do |attendee| %>
+          <tr>
+            <td>
+              <h4><%= attendee.user.name.capitalize%></h4>
+            </td>
+            <td>
+              <h4><%= attendee.user.gender %></h4>
+            </td>
+		  </tr>
+		<% end %>
+	  </tbody>
 	</table>
     <% if @event.time > Time.now %>
 	  	<% if user_signed_in? %>
@@ -33,7 +40,8 @@
 				<%= link_to "Unattend", unattend_event_path(@event), method: :get, "data-confirm" => "Are you sure?", class:"btn btn-raised btn-warning"%>
 			<% end %>
 	  	<% else %>
-	     	<h5> Want to attend the meetup ? <%= link_to "Log In",new_user_session_path %> </h5>		
+	     	<h5> Want to attend the meetup ? 
+	     	<%= link_to "Log In", new_user_session_path %> </h5>		
 	  	<% end %>
     <% else %>
 	     <h4> The event was finished.</h4>

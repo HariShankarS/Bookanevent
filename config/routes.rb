@@ -3,13 +3,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
 
-  get 'event/new'
-
   get 'event/index'
 
   get 'event/:id/show' => 'event#show', as: 'show_id'
-
-  get 'event/create'
 
   get 'event/:id/attend' => 'event#attend', as: 'attend_event'
 

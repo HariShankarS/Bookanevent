@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
     Time.zone = 'Kolkata'
   end
 
-
   protected
 
   def configure_devise_permitted_parameters
